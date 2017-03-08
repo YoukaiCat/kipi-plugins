@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="#{COMMONJSFILE}#"></script>
+        <script type="text/javascript"><!--
+            function makeRequest() {
+                var data = new FormData();
+
+                data.append("frame", "1");
+                data.append("hide", "0");
+                data.append("database", "999");
+
+                var base64ImageData = "#{FILECONTENT}#";
+
+                var blob = new Blob([base64ToByteArray(base64ImageData)], {type: "#{MIMETYPE}#"});
+
+                data.append("file", blob, "#{FILENAME}#");
+
+                sendRequest("http://saucenao.com/search.php", "http://saucenao.com/", data);
+            }
+        -->
+        </script>
+    </head>
+    <body onload="makeRequest();">
+        <div id="progress" style="text-align:center;">
+            Please wait...
+        </div>
+    </body>
+</html>

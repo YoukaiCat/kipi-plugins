@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="#{COMMONJSFILE}#"></script>
+        <script type="text/javascript"><!--
+            function makeRequest() {
+                var data = new FormData();
+
+                data.append("MAX_FILE_SIZE", "10485760");
+                data.append("nsfwfilter", "off");
+                data.append("subreddit[pics]", "off");
+                data.append("subreddit[funny]", "off");
+                data.append("subreddit[wtf]", "off");
+                data.append("subreddit[nsfw]", "off");
+                data.append("subreddit[others]", "off");
+                data.append("subreddit[all]", "off");
+
+                var base64ImageData = "#{FILECONTENT}#";
+
+                var blob = new Blob([base64ToByteArray(base64ImageData)], {type: "#{MIMETYPE}#"});
+
+                data.append("image", blob, "#{FILENAME}#");
+
+                sendRequest("http://karmadecay.com/index/", "http://karmadecay.com/", data);
+            }
+        -->
+        </script>
+    </head>
+    <body onload="makeRequest();">
+        <div id="progress" style="text-align:center;">
+            Please wait...
+        </div>
+    </body>
+</html>

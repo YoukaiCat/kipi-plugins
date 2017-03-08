@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="#{COMMONJSFILE}#"></script>
+        <script type="text/javascript"><!--
+            function makeRequest() {
+                var data = new FormData();
+
+                data.append("image_url", "");
+                data.append("image_content", "");
+                data.append("filename", "");
+                data.append("hl", "en");
+
+                var base64ImageData = "#{FILECONTENT}#";
+
+                var blob = new Blob([base64ToByteArray(base64ImageData)], {type: "#{MIMETYPE}#"});
+
+                data.append("encoded_image", blob, "#{FILENAME}#");
+
+                sendRequest("https://images.google.com/searchbyimage/upload", "https://www.google.com/", data);
+            }
+        -->
+        </script>
+    </head>
+    <body onload="makeRequest();">
+        <div id="progress" style="text-align:center;">
+            Please wait...
+        </div>
+    </body>
+</html>

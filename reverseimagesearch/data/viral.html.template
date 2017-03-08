@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="#{COMMONJSFILE}#"></script>
+        <script type="text/javascript"><!--
+            function makeRequest() {
+                var data = new FormData();
+
+                data.append("MAX_FILE_SIZE", "5000000");
+                data.append("submit", " Upload ");
+
+                var base64ImageData = "#{FILECONTENT}#";
+
+                var blob = new Blob([base64ToByteArray(base64ImageData)], {type: "#{MIMETYPE}#"});
+
+                data.append("file", blob, "#{FILENAME}#");
+
+                sendRequest("http://viral.image.ntua.gr/?upload", "http://viral.image.ntua.gr/", data);
+            }
+        -->
+        </script>
+    </head>
+    <body onload="makeRequest();">
+        <div id="progress" style="text-align:center;">
+            Please wait...
+        </div>
+    </body>
+</html>

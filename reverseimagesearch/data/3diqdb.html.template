@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="#{COMMONJSFILE}#"></script>
+        <script type="text/javascript"><!--
+            function makeRequest() {
+                var data = new FormData();
+
+                data.append("MAX_FILE_SIZE", "8388608");
+                data.append("service[]", "7");
+                data.append("service[]", "9");
+
+                var base64ImageData = "#{FILECONTENT}#";
+
+                var blob = new Blob([base64ToByteArray(base64ImageData)], {type: "#{MIMETYPE}#"});
+
+                data.append("file", blob, "#{FILENAME}#");
+
+                sendRequest("http://3d.iqdb.org/", "http://3d.iqdb.org/", data);
+            }
+        -->
+        </script>
+    </head>
+    <body onload="makeRequest();">
+        <div id="progress" style="text-align:center;">
+            Please wait...
+        </div>
+    </body>
+</html>

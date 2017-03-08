@@ -1,0 +1,28 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<!-- NOTE: don't forget to increase version ID when this file is modified -->
+<gui version="1" name="kipiplugin_reverseimagesearch" >
+
+    <MenuBar>
+
+        <Menu name="Tools"><text>&amp;Tools</text>
+            <Action name="ascii2d" group="kipi_tools_group" />
+            <Action name="baidu" group="kipi_tools_group" />
+            <Action name="deepfeatures" group="kipi_tools_group" />
+            <Action name="google" group="kipi_tools_group" />
+            <Action name="imgops" group="kipi_tools_group" />
+            <Action name="iqdb" group="kipi_tools_group" />
+            <Action name="3diqdb" group="kipi_tools_group" />
+            <Action name="karmadecay" group="kipi_tools_group" />
+            <Action name="saucenao" group="kipi_tools_group" />
+            <Action name="tineye" group="kipi_tools_group" />
+            <Action name="viral" group="kipi_tools_group" />
+            <Action name="harrylu" group="kipi_tools_group" />
+        </Menu>
+
+    </MenuBar>
+
+    <ToolBar name="mainToolBar"><text>Main Toolbar</text>
+    </ToolBar>
+
+</gui>
+
